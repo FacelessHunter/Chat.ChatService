@@ -34,7 +34,7 @@ jobs:
       - name: Test
         run: dotnet test dist/ --no-restore --verbosity normal
       - name: Upload Artifacts
-      - uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2
         with:
           name: build_data
           path: dist/
@@ -46,7 +46,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Dowload Artifacts
-      - uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v2
         with:
           name: build_data
 
