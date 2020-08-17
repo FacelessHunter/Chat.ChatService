@@ -31,8 +31,8 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build --configuration Release --no-restore --output dist/
-      - name: Test
-        run: dotnet test dist/ --no-restore --verbosity normal
+      # - name: Test
+      #   run: dotnet test dist/ --no-restore --verbosity normal
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
