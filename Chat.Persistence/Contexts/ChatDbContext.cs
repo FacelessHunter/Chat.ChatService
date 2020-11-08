@@ -31,7 +31,6 @@ namespace Chat.Persistence.Contexts
             builder.ApplyConfiguration(new ChatUsersEntityconfiguration());
             builder.ApplyConfiguration(new UserEntityConfiguration());
             builder.ApplyConfiguration(new MessageEntityConfiguration());
-
         }
     }
 }

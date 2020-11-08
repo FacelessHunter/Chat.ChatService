@@ -14,7 +14,7 @@
         </member>
         <member name="M:Chat.API.Controllers.ChatController.IsExist(System.Int64)">
             <summary>
-            Verify access to chat
+            Verify exist chat
             </summary>
             <param name="chatId">Chat's identifier</param>
             <returns></returns>
