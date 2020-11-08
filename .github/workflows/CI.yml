@@ -25,14 +25,12 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.301
-      - name: Change directory
-        run: cd 
+      - name: Add nuget token
+        run: echo $(sed -e 's/{USERNAME}/${{ github.repository_owner }}/; s/{GITLUB_NUGET_TOKEN}/${{ secrets.GITHUB_TOKEN }}/' ./nuget.config) > nuget.config
       - name: Install dependencies
         run: dotnet restore
       - name: Build
         run: dotnet build --configuration Release --no-restore --output dist/
-      # - name: Test
-      #   run: dotnet test dist/ --no-restore --verbosity normal
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
