@@ -52,7 +52,7 @@ namespace Chat.API.Controllers
         }
 
         /// <summary>
-        /// Verify access to chat
+        /// Verify exist chat
         /// </summary>
         /// <param name="chatId">Chat's identifier</param>
         /// <returns></returns>

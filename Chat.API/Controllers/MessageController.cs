@@ -12,6 +12,7 @@ using Common.Domain.DTOs;
 using Common.Domain.DTOs.MessageDTOs;
 using Common.Domain.Enums;
 using Common.Implementations.ExceptionImplementations.Exceptions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Chat.API.Controllers
@@ -19,6 +20,7 @@ namespace Chat.API.Controllers
     /// <summary>
     /// Message controller
     /// </summary>
+    [Authorize]
     [Route("api/messages")]
     [ApiController]
     public class MessageController : ControllerBase

@@ -143,16 +143,19 @@ namespace Chat.Infrastructure.Implementation
         /// <returns>Array of Chats</returns>
         public async Task<Domain.Entities.Chat[]> GetUsersChats(string userName)
         {
-            var userRepository = _uof.GetRepository<User, string>();
+            if (await IfUserExistsAdd(userName))
+            {
+                var userRepository = _uof.GetRepository<User, string>();
 
-            var user = await userRepository.FindByKeyAsync(userName, "ChatUsers.Chat");
+                var user = await userRepository.FindByKeyAsync(userName, "ChatUsers.Chat");
 
-            if (user == null)
-                throw new NotFoundException(ErrorCode.NotFoundUser, "Not found User");
+                if (user == null)
+                    throw new NotFoundException(ErrorCode.NotFoundUser, "Not found User");
 
-            var chats = user.ChatUsers.Select(p => p.Chat).ToArray();
-
-            return chats;
+                var chats = user.ChatUsers.Select(p => p.Chat).ToArray();
+                return chats;
+            }
+            return null;
         }
 
         /// <summary>

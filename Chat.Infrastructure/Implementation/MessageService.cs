@@ -43,8 +43,6 @@ namespace Chat.Infrastructure.Implementation
             return await repository.GetAsync(expression, p => p.Skip(skip)
                                                                .Take(take)
                                                                .OrderBy(t => t.Id));
-
-
         }
     }
 }
